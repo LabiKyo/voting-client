@@ -1,0 +1,18 @@
+doctype 5
+html
+  head
+    title Polling
+    link(rel='stylesheet', href='/css/main.css' + cachebust)
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+
+    if reload
+      script(src='/socket.io/socket.io.js')
+      script(src='/js/reload-client.js')
+
+    if optimize
+      script(src='/js/main-built.js')
+    else
+      script(src='/js/vendor/require.js', data-main='/js/main.js')
+
+  body
+    block content
